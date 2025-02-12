@@ -20,7 +20,7 @@ class Bot(Client):
             workers=TG_BOT_WORKERS,
             bot_token=BOT_TOKEN
         )
-        self.LOGGER = LOGGER
+        self.LOGGER = LOGGER(__name__)
 
     async def start(self):
         await super().start()
