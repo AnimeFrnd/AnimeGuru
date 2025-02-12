@@ -5,8 +5,12 @@ from pyrogram import Client
 from pyrogram.enums import ParseMode
 import sys
 from datetime import datetime
-from config import API_HASH, API_ID, LOGGER, BOT_TOKEN, TG_BOT_WORKERS, FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL2, FORCE_SUB_CHANNEL3, FORCE_SUB_CHANNEL4, CHANNEL_ID, PORT
-import pyrogram.utils
+from config import API_HASH, API_ID, BOT_TOKEN, TG_BOT_WORKERS, FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL2, FORCE_SUB_CHANNEL3, FORCE_SUB_CHANNEL4, CHANNEL_ID, PORT
+import logging  # Add logging module import
+
+# Set up the logger
+logging.basicConfig(level=logging.INFO)
+LOGGER = logging.getLogger(__name__)  # Set LOGGER to a logger instance
 
 pyrogram.utils.MIN_CHANNEL_ID = -1009999999999
 
@@ -20,68 +24,33 @@ class Bot(Client):
             workers=TG_BOT_WORKERS,
             bot_token=BOT_TOKEN
         )
-        self.LOGGER = LOGGER(__name__)
+        self.LOGGER = LOGGER  # Assign the logger instance to self.LOGGER
 
     async def start(self):
         await super().start()
         usr_bot_me = await self.get_me()
         self.uptime = datetime.now()
 
-        if FORCE_SUB_CHANNEL:
-            try:
-                link = (await self.get_chat(FORCE_SUB_CHANNEL)).invite_link
-                if not link:
-                    await self.export_chat_invite_link(FORCE_SUB_CHANNEL)
-                    link = (await self.get_chat(FORCE_SUB_CHANNEL)).invite_link
-                self.invitelink = link
-            except Exception as a:
-                self.LOGGER.warning(f"Error: {a}")
-                self.LOGGER.warning(f"Bot Can't Export Invite link From Force Sub Channel!")
-                self.LOGGER.warning(f"Please Double Check The FORCE_SUB_CHANNEL Value And Make Sure Bot Is Admin In Channel With Invite Users Via Link Permission, Current Force Sub Channel Value: {FORCE_SUB_CHANNEL}")
-                self.LOGGER.info("Bot Stopped. Join https://t.me/Telugu_Movies_999 For Support")
-                sys.exit()
-
-        if FORCE_SUB_CHANNEL2:
-            try:
-                link = (await self.get_chat(FORCE_SUB_CHANNEL2)).invite_link
-                if not link:
-                    await self.export_chat_invite_link(FORCE_SUB_CHANNEL2)
-                    link = (await self.get_chat(FORCE_SUB_CHANNEL2)).invite_link
-                self.invitelink2 = link
-            except Exception as a:
-                self.LOGGER.warning(f"Error: {a}")
-                self.LOGGER.warning(f"Bot Can't Export Invite link From Force Sub Channel!")
-                self.LOGGER.warning(f"Please Double Check The FORCE_SUB_CHANNEL2 Value And Make Sure Bot Is Admin In Channel With Invite Users Via Link Permission, Current Force Sub Channel Value: {FORCE_SUB_CHANNEL2}")
-                self.LOGGER.info("Bot Stopped. Join https://t.me/Telugu_Movies_999 For Support")
-                sys.exit()
-
-        if FORCE_SUB_CHANNEL3:
-            try:
-                link = (await self.get_chat(FORCE_SUB_CHANNEL3)).invite_link
-                if not link:
-                    await self.export_chat_invite_link(FORCE_SUB_CHANNEL3)
-                    link = (await self.get_chat(FORCE_SUB_CHANNEL3)).invite_link
-                self.invitelink3 = link
-            except Exception as a:
-                self.LOGGER.warning(f"Error: {a}")
-                self.LOGGER.warning(f"Bot Can't Export Invite link From Force Sub Channel!")
-                self.LOGGER.warning(f"Please Double Check The FORCE_SUB_CHANNEL3 Value And Make Sure Bot Is Admin In Channel With Invite Users Via Link Permission, Current Force Sub Channel Value: {FORCE_SUB_CHANNEL3}")
-                self.LOGGER.info("Bot Stopped. Join https://t.me/Telugu_Movies_999 For Support")
-                sys.exit()
-
-        if FORCE_SUB_CHANNEL4:
-            try:
-                link = (await self.get_chat(FORCE_SUB_CHANNEL4)).invite_link
-                if not link:
-                    await self.export_chat_invite_link(FORCE_SUB_CHANNEL4)
-                    link = (await self.get_chat(FORCE_SUB_CHANNEL4)).invite_link
-                self.invitelink4 = link
-            except Exception as a:
-                self.LOGGER.warning(f"Error: {a}")
-                self.LOGGER.warning(f"Bot Can't Export Invite link From Force Sub Channel!")
-                self.LOGGER.warning(f"Please Double Check The FORCE_SUB_CHANNEL4 Value And Make Sure Bot Is Admin In Channel With Invite Users Via Link Permission, Current Force Sub Channel Value: {FORCE_SUB_CHANNEL4}")
-                self.LOGGER.info("Bot Stopped. Join https://t.me/Telugu_Movies_999 For Support")
-                sys.exit()
+        # Repeat for all Force Sub Channels
+        for sub_channel, invitelink_attr in [
+            (FORCE_SUB_CHANNEL, 'invitelink'), 
+            (FORCE_SUB_CHANNEL2, 'invitelink2'),
+            (FORCE_SUB_CHANNEL3, 'invitelink3'),
+            (FORCE_SUB_CHANNEL4, 'invitelink4')
+        ]:
+            if sub_channel:
+                try:
+                    link = (await self.get_chat(sub_channel)).invite_link
+                    if not link:
+                        await self.export_chat_invite_link(sub_channel)
+                        link = (await self.get_chat(sub_channel)).invite_link
+                    setattr(self, invitelink_attr, link)
+                except Exception as a:
+                    self.LOGGER.warning(f"Error: {a}")
+                    self.LOGGER.warning(f"Bot Can't Export Invite link From Force Sub Channel!")
+                    self.LOGGER.warning(f"Please Double Check The {sub_channel} Value And Make Sure Bot Is Admin In Channel With Invite Users Via Link Permission!")
+                    self.LOGGER.info("Bot Stopped. Join https://t.me/Telugu_Movies_999 For Support")
+                    sys.exit()
 
         try:
             db_channel = await self.get_chat(CHANNEL_ID)
@@ -90,7 +59,7 @@ class Bot(Client):
             await test.delete()
         except Exception as e:
             self.LOGGER.warning(f"Error: {e}")
-            self.LOGGER.warning(f"Make Sure Bot Is Admin In DB Channel, And Double Check The CHANNEL_ID Value, Current Value: {CHANNEL_ID}")
+            self.LOGGER.warning(f"Make Sure Bot Is Admin In DB Channel, And Double Check The CHANNEL_ID Value!")
             self.LOGGER.info("Bot Stopped. Join https://t.me/Telugu_Movies_999 For Support")
             sys.exit()
 
