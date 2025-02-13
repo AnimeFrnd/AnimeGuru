@@ -127,12 +127,12 @@ async def start_command(client: Client, message: Message):
 async def not_joined(client: Client, message: Message):
     buttons = [
         [
-            InlineKeyboardButton("Join Channel 1", url=client.invitelink),
-            InlineKeyboardButton("Join Channel 2", url=client.invitelink2),
+            InlineKeyboardButton("❃ Join Channel ❃", url=client.invitelink),
+            InlineKeyboardButton("❃ Join Channel ❃", url=client.invitelink2),
         ],
         [
-            InlineKeyboardButton("Join Channel 3", url=client.invitelink3),
-            InlineKeyboardButton("Join Channel 4", url=client.invitelink4),
+            InlineKeyboardButton("❃ Join Channel ❃", url=client.invitelink3),
+            InlineKeyboardButton("❃ Join Channel ❃", url=client.invitelink4),
         ]
     ]
     try:
