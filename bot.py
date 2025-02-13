@@ -12,7 +12,9 @@ import logging  # Add logging module import
 logging.basicConfig(level=logging.INFO)
 LOGGER = logging.getLogger(__name__)  # Set LOGGER to a logger instance
 
-pyrogram.utils.MIN_CHANNEL_ID = -1009999999999
+import pyrogram
+
+pyrogram.utils.MIN_CHANNEL_ID = -1009999999999  # Now it will work correctly
 
 class Bot(Client):
     def __init__(self):
