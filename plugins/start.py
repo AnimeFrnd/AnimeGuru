@@ -118,7 +118,6 @@ async def start_command(client: Client, message: Message):
                 id=message.from_user.id
             ),
             reply_markup=reply_markup,
-            disable_web_page_preview=True,
             quote=True
         )
         return
@@ -155,8 +154,7 @@ async def not_joined(client: Client, message: Message):
             id=message.from_user.id
         ),
         reply_markup=InlineKeyboardMarkup(buttons),
-        quote=True,
-        disable_web_page_preview=True
+        quote=True
     )
 
 
