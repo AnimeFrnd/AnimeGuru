@@ -15,8 +15,8 @@ def str_to_bool(value):
 
 
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
-API_ID = get_int_env("API_ID", )
-API_HASH = os.environ.get("API_HASH", "")
+API_ID = get_int_env("API_ID",7515868)
+API_HASH = os.environ.get("API_HASH", "dbd251e9ad4883b0443cc82b618ac6fa")
 
 OWNER_ID = get_int_env("OWNER_ID", 6081617163)
 DB_URL = os.environ.get("DB_URL", "mongodb+srv://bestanimeandcartoonsclips:VrMTuRFUEZdKsoV7@cluster0.ayqz3o3.mongodb.net/?retryWrites=true&w=majority")
