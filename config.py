@@ -23,10 +23,10 @@ DB_URL = os.environ.get("DB_URL", "mongodb+srv://bestanimeandcartoonsclips:VrMTu
 DB_NAME = os.environ.get("DB_NAME", "aryabro")
 
 CHANNEL_ID = get_int_env("CHANNEL_ID", -1002292066966)
-FORCE_SUB_CHANNEL = get_int_env("FORCE_SUB_CHANNEL", )
-FORCE_SUB_CHANNEL2 = get_int_env("FORCE_SUB_CHANNEL2", )
-FORCE_SUB_CHANNEL3 = get_int_env("FORCE_SUB_CHANNEL3", )
-FORCE_SUB_CHANNEL4 = get_int_env("FORCE_SUB_CHANNEL4", )
+FORCE_SUB_CHANNEL = get_int_env("FORCE_SUB_CHANNEL", 0)
+FORCE_SUB_CHANNEL2 = get_int_env("FORCE_SUB_CHANNEL2", 0)
+FORCE_SUB_CHANNEL3 = get_int_env("FORCE_SUB_CHANNEL3", 0)
+FORCE_SUB_CHANNEL4 = get_int_env("FORCE_SUB_CHANNEL4", 0)
 
 FILE_AUTO_DELETE = get_int_env("FILE_AUTO_DELETE", 86400)  # Auto delete in seconds
 PORT = os.environ.get("PORT", "8080")
