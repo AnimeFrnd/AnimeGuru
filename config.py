@@ -14,7 +14,7 @@ def str_to_bool(value):
     return str(value).lower() in ("true", "1", "yes")
 
 
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "7093426015:AAGYJOOrtKxfUFAOm-IKXUD1ysabpflriBo")
 API_ID = get_int_env("API_ID",7515868)
 API_HASH = os.environ.get("API_HASH", "dbd251e9ad4883b0443cc82b618ac6fa")
 
@@ -23,10 +23,10 @@ DB_URL = os.environ.get("DB_URL", "mongodb+srv://bestanimeandcartoonsclips:VrMTu
 DB_NAME = os.environ.get("DB_NAME", "aryabro")
 
 CHANNEL_ID = get_int_env("CHANNEL_ID", -1002292066966)
-FORCE_SUB_CHANNEL = get_int_env("FORCE_SUB_CHANNEL", -1001507915878)
-FORCE_SUB_CHANNEL2 = get_int_env("FORCE_SUB_CHANNEL2", -1001798300759)
-FORCE_SUB_CHANNEL3 = get_int_env("FORCE_SUB_CHANNEL3", -1001981549906)
-FORCE_SUB_CHANNEL4 = get_int_env("FORCE_SUB_CHANNEL4", -1001713521586)
+FORCE_SUB_CHANNEL = get_int_env("FORCE_SUB_CHANNEL", )
+FORCE_SUB_CHANNEL2 = get_int_env("FORCE_SUB_CHANNEL2", )
+FORCE_SUB_CHANNEL3 = get_int_env("FORCE_SUB_CHANNEL3", )
+FORCE_SUB_CHANNEL4 = get_int_env("FORCE_SUB_CHANNEL4", )
 
 FILE_AUTO_DELETE = get_int_env("FILE_AUTO_DELETE", 86400)  # Auto delete in seconds
 PORT = os.environ.get("PORT", "8080")
