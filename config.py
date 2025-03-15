@@ -32,8 +32,8 @@ FILE_AUTO_DELETE = get_int_env("FILE_AUTO_DELETE", 86400)  # Auto delete in seco
 PORT = os.environ.get("PORT", "8080")
 TG_BOT_WORKERS = get_int_env("TG_BOT_WORKERS", 6)
 
-START_PIC = os.environ.get("START_PIC", "https://envs.sh/6nf.jpg")
-FORCE_PIC = os.environ.get("FORCE_PIC", "https://envs.sh/6nf.jpg")
+START_PIC = os.environ.get("START_PIC", "https://telegra.ph/file/703f6dd8194cb5d707d63-c4bfc450283f9a4b4b.jpg")
+FORCE_PIC = os.environ.get("FORCE_PIC", "https://telegra.ph/file/703f6dd8194cb5d707d63-c4bfc450283f9a4b4b.jpg")
 
 # Proper handling of admins
 ADMINS = {6081617163}  # Use a set to avoid duplicates
