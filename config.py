@@ -15,7 +15,7 @@ def str_to_bool(value):
 
 
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "7093426015:AAGYJOOrtKxfUFAOm-IKXUD1ysabpflriBo")
-API_ID = get_int_env("API_ID",7515868)
+API_ID = get_int_env("API_ID", 7515868)
 API_HASH = os.environ.get("API_HASH", "dbd251e9ad4883b0443cc82b618ac6fa")
 
 OWNER_ID = get_int_env("OWNER_ID", 6081617163)
@@ -25,8 +25,8 @@ DB_NAME = os.environ.get("DB_NAME", "aryabro")
 CHANNEL_ID = get_int_env("CHANNEL_ID", -1002292066966)
 FORCE_SUB_CHANNEL = get_int_env("FORCE_SUB_CHANNEL", 0)
 FORCE_SUB_CHANNEL2 = get_int_env("FORCE_SUB_CHANNEL2", 0)
-FORCE_SUB_CHANNEL3 = get_int_env("FORCE_SUB_CHANNEL3", 0)
-FORCE_SUB_CHANNEL4 = get_int_env("FORCE_SUB_CHANNEL4", 0)
+FORCE_SUB_CHANNEL3 = get_int_env("FORCE_SUB_CHANNEL3", 0)  # Added back
+FORCE_SUB_CHANNEL4 = get_int_env("FORCE_SUB_CHANNEL4", 0)  # Added back
 
 FILE_AUTO_DELETE = get_int_env("FILE_AUTO_DELETE", 86400)  # Auto delete in seconds
 PORT = os.environ.get("PORT", "8080")
@@ -51,23 +51,22 @@ BOT_STATS_TEXT = "<b>BOT UPTIME :</b>\n{uptime}"
 
 USER_REPLY_TEXT = "❌sᴏʀʀʏ మావా నువ్వు నా ᴏᴡɴᴇʀ కాదు..!😜\n\n❌Don't Send Me Messages Directly I'm Only File Share Bot !"
 
-START_MSG = os.environ.get("START_MESSAGE", """<b><blockquote>
-Hᴇʏ, <a href='tg://user?id={id}'>{first}</a>✌🏻. I ʜᴏᴘᴇ ʏᴏᴜ'ʀᴇ ғᴇᴇʟɪɴɢ ᴛʜᴇ ᴘᴏᴡᴇʀ ᴏғ 𝐒ʜᴀᴅᴏᴡ Mᴏɴᴀʀᴄʜ 😈.
+START_MSG = """<b><blockquote>
+Hey, <a href='tg://user?id={id}'>{first}</a>✌🏻. I hope you're feeling the power of 𝐒ʜᴀᴅᴏᴡ Mᴏɴᴀʀᴄʜ 😈.
 
-I'ᴍ 𝐓ʜᴇ Uʟᴛɪᴍᴀᴛᴇ Fɪʟᴇ Sʜᴀʀɪɴɢ Bᴏᴛ, ʙᴜɪʟᴛ ᴛᴏ ʀᴜʟᴇ ᴛʜᴇ 𝐒ʜᴀᴅᴏᴡ Rᴇᴀʟᴍ 🖤
+I'm The Ultimate File Sharing Bot, built to rule the Shadow Realm 🖤
 
-🔱 Sᴛᴏʀᴇ & Sʜᴀʀᴇ Fɪʟᴇs ᴡɪᴛʜ ᴀ Sɪɴɢʟᴇ Cʟɪᴄᴋ.  
-🛡️ Iɴꜰɪɴɪᴛᴇ Fɪʟᴇ Mᴀɴᴀɢᴇᴍᴇɴᴛ Sʏꜱᴛᴇᴍ.  
-📂 Pᴏsᴛ Fɪʟᴇs ɪɴ 𝐀ɴɪᴍᴇ Mᴏɴᴀʀᴄʜ 👑 Tᴇᴍᴘʟᴀᴛᴇ.
+🔱 Store & Share Files with a Single Click.  
+🛡️ Infinite File Management System.  
+📂 Post Files in Anime Monarch 👑 Template.
 
 ---
 
-𝐍ᴏᴡ, 𝐓ʜᴇ Fɪʟᴇ Rᴇᴀʟᴍ Iꜱ Uɴᴅᴇʀ Mʏ Cᴏɴᴛʀᴏʟ 😈.  
-𝐀ʀᴇ Yᴏᴜ Rᴇᴀᴅʏ ᴛᴏ Dᴏᴍɪɴᴀᴛᴇ, {first}-Sᴀᴍᴀ? 👑
-</blockquote></b>""")
+Now, The File Realm Is Under My Control 😈.  
+Are You Ready to Dominate, {first}-Sama? 👑
+</blockquote></b>"""
 
-FORCE_MSG = os.environ.get("FORCE_SUB_MESSAGE",
-                           "Hello {mention}\n\n<b>ʏᴏᴜ ɴᴇᴇᴅ ᴛᴏ ᴊᴏɪɴ ᴏᴜʀ ᴄʜᴀɴɴᴇʟs ᴀɴᴅ ᴛʜᴇɴ ᴄʟɪᴄᴋ ᴏɴ ʀᴇʟᴏᴀᴅ button ᴛᴏ ɢᴇᴛ ʏᴏᴜʀ ʀᴇǫᴜᴇꜱᴛᴇᴅ ꜰɪʟᴇ. \n\n కింద ఇచ్చిన 4 చానెల్స్ లో జాయిన్ అయ్యి తరవాత Try Again క్లిక్ చేస్తే File📁 వస్తది..:) 🥰</b>")
+FORCE_MSG = "Join my channels first 😈"
 
 LOG_FILE_NAME = "filesharingbot.txt"
 
