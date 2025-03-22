@@ -1,20 +1,20 @@
 from aiohttp import web
 from plugins import web_server
 import pyromod.listen
-from pyrogram import Client
+from pyrogram import Client, filters
+from pyrogram.types import Message
 from pyrogram.enums import ParseMode
 import sys
 from datetime import datetime
-from config import API_HASH, API_ID, BOT_TOKEN, TG_BOT_WORKERS, FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL2, FORCE_SUB_CHANNEL3, FORCE_SUB_CHANNEL4, CHANNEL_ID, PORT
-import logging  # Add logging module import
+from config import API_HASH, API_ID, BOT_TOKEN, TG_BOT_WORKERS, FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL2, FORCE_SUB_CHANNEL3, FORCE_SUB_CHANNEL4, CHANNEL_ID, PORT, START_MSG
+import logging
 
 # Set up the logger
 logging.basicConfig(level=logging.INFO)
-LOGGER = logging.getLogger(__name__)  # Set LOGGER to a logger instance
+LOGGER = logging.getLogger(__name__)
 
 import pyrogram
-
-pyrogram.utils.MIN_CHANNEL_ID = -1009999999999  # Now it will work correctly
+pyrogram.utils.MIN_CHANNEL_ID = -1009999999999  # Fixes channel ID issues
 
 class Bot(Client):
     def __init__(self):
@@ -26,14 +26,14 @@ class Bot(Client):
             workers=TG_BOT_WORKERS,
             bot_token=BOT_TOKEN
         )
-        self.LOGGER = LOGGER  # Assign the logger instance to self.LOGGER
+        self.LOGGER = LOGGER  # Assign logger instance
 
     async def start(self):
         await super().start()
         usr_bot_me = await self.get_me()
         self.uptime = datetime.now()
 
-        # Repeat for all Force Sub Channels
+        # Set up invite links for Force Sub Channels
         for sub_channel, invitelink_attr in [
             (FORCE_SUB_CHANNEL, 'invitelink'), 
             (FORCE_SUB_CHANNEL2, 'invitelink2'),
@@ -47,11 +47,11 @@ class Bot(Client):
                         await self.export_chat_invite_link(sub_channel)
                         link = (await self.get_chat(sub_channel)).invite_link
                     setattr(self, invitelink_attr, link)
-                except Exception as a:
-                    self.LOGGER.warning(f"Error: {a}")
-                    self.LOGGER.warning(f"Bot Can't Export Invite link From Force Sub Channel!")
-                    self.LOGGER.warning(f"Please Double Check The {sub_channel} Value And Make Sure Bot Is Admin In Channel With Invite Users Via Link Permission!")
-                    self.LOGGER.info("Bot Stopped. Join https://t.me/Telugu_Movies_999 For Support")
+                except Exception as e:
+                    self.LOGGER.warning(f"Error: {e}")
+                    self.LOGGER.warning("Bot can't export invite link from Force Sub Channel!")
+                    self.LOGGER.warning(f"Check {sub_channel} and ensure the bot has admin rights with 'Invite Users' permission!")
+                    self.LOGGER.info("Bot Stopped. Join https://t.me/Telugu_Movies_999 for Support")
                     sys.exit()
 
         try:
@@ -61,16 +61,16 @@ class Bot(Client):
             await test.delete()
         except Exception as e:
             self.LOGGER.warning(f"Error: {e}")
-            self.LOGGER.warning(f"Make Sure Bot Is Admin In DB Channel, And Double Check The CHANNEL_ID Value!")
-            self.LOGGER.info("Bot Stopped. Join https://t.me/Telugu_Movies_999 For Support")
+            self.LOGGER.warning("Ensure the bot is admin in the DB Channel and check the CHANNEL_ID value!")
+            self.LOGGER.info("Bot Stopped. Join https://t.me/Telugu_Movies_999 for Support")
             sys.exit()
 
         self.parse_mode = ParseMode.HTML
-        self.LOGGER.info("Bot Running..!\n\nCreated By \nhttps://t.me/Telugu_Movies_999")
+        self.LOGGER.info("Bot Running..!\n\nCreated By https://t.me/Telugu_Movies_999")
         self.LOGGER.info("ミ💖 Telugu Movies 999 💖彡")
         self.username = usr_bot_me.username
 
-        # web-response
+        # Web server setup
         app = web.AppRunner(await web_server())
         await app.setup()
         bind_address = "0.0.0.0"
@@ -80,8 +80,13 @@ class Bot(Client):
         await super().stop()
         self.LOGGER.info("Bot Stopped...")
 
-# Jishu Developer 
-# Don't Remove Credit 🥺
-# Telegram Channel @Madflix_Bots
-# Backup Channel @JishuBotz
-# Developer @JishuDeveloper
+# Start Command with Quote Block
+@app.on_message(filters.command("start"))
+async def start_message(client: Client, message: Message):
+    await message.reply_text(
+        START_MSG.format(id=message.from_user.id, first=message.from_user.first_name),
+        parse_mode="html"
+    )
+
+app = Bot()
+app.run()
