@@ -1,6 +1,5 @@
 from aiohttp import web
-from plugins import web_server
-#from plugins import admin  # Ensure the new handlers are loaded
+from plugins import web_server #from plugins import admin  # Ensure the new handlers are loaded
 import pyromod.listen
 from pyrogram import Client, filters
 from pyrogram.types import Message
