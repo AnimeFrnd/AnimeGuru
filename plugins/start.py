@@ -102,13 +102,17 @@ async def start_command(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('💝 ᴏᴜʀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 💝', url='https://t.me/Telugu_Movies_999')
-        ],[
-            InlineKeyboardButton('🔍 ᴍᴏᴠɪᴇs ɢʀᴏᴜᴘ', url='https://t.me/+-duU_vRUZzswZDY1'),
-            InlineKeyboardButton('🫰 ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', url='https://t.me/+_Y54DFBnaVUwZjc1')
-        ],[
-            InlineKeyboardButton('😊 ᴀʙᴏᴜᴛ ᴍᴇ', callback_data='about'),
-            InlineKeyboardButton('🔒 Close', callback_data='close')
+                    InlineKeyboardButton('❄ Mᴀɪɴ Cʜᴀɴɴᴇʟ ❄', url='https://t.me/Telugu_Movies_999')
+                ],
+                [
+                    InlineKeyboardButton('⚡ Oɴɢᴏɪɴɢ Aɴɪᴍᴇs ⚡', url='https://t.me/anime_Movies_and_Series_Telugu')
+                ],
+                [
+                    InlineKeyboardButton('⚜️ Pᴀɪᴅ Pʀᴏᴍᴏᴛɪᴏɴ ⚜️', url='https://t.me/nithya_sree_bot')
+                ],
+                [
+                   InlineKeyboardButton("🎗 ᴀʙᴏᴜᴛ 🎗", callback_data = "about"),
+                   InlineKeyboardButton("🔒 ᴄʟᴏꜱᴇ 🔒", callback_data = "close")
                     
                 ]
             ]
