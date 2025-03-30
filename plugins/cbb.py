@@ -8,14 +8,15 @@ async def cb_handler(client: Bot, query: CallbackQuery):
     data = query.data
     if data == "about":
         await query.message.edit_text(
-            text = (
-                "<b><blockquote>❃ 💓 ᴏᴡɴᴇʀ (ᴀʀʏᴀ) : <a href='https://t.me/Arya_Bro'>ᴀʀʏᴀ ʙʀᴏ❤‍🔥</a>\n"
-                "❃ 🫡ꜰᴏᴜɴᴅᴇʀ ᴏꜰ : <a href='https://t.me/Telugu_movies_999'>ᴛᴇʟᴜɢᴜᴍᴏᴠɪᴇs𝟿𝟿𝟿 ❣️</a>\n"
-                "❃ 🥵 ʟ€@ᴋ$: <a href='https://t.me/+4QSB2tPk-ME2NDdl'>ᴄʟɢ ɢɪʀʟ ᴀɴᴅ ʟᴜᴠʀs 😛</a>\n"
-                "❃ 🔞 ᴀᴅᴜʟᴛ ᴄʜᴀɴɴᴇʟ : <a href='https://t.me/+aph6xGmeXgU2NzFl'>ᴀᴅᴜʟᴛ ᴍᴏᴠɪᴇs 🤤</a>\n"
-                "❃ 🌿ʀᴇǫᴜᴇsᴛ ɢʀᴏᴜᴘ : <a href='https://t.me/+-duU_vRUZzswZDY1'>ɢʀᴏᴜᴘ 🫧</a>\n"
-                "❃ 🫰 ғɪʟᴛᴇʀ ʙᴏᴛ : <a href='https://t.me/Aryas_Movies_Finder_bot'>ғɪʟᴛᴇʀ ʙᴏᴛ 🫶</a></blockquote></b>"
-            ),
+            text =  f'<b>⟦★⟧ Hi There {query.from_user.mention}</b>!💫\n' \
+                  f'<b>┏━━━━━━━❪❂❫━━━━━━━━</b>\n' \
+                  f'◈ <b>Cʀᴇᴀᴛᴏʀ</b>: <b><a href="https://t.me/Nithya_Sree_Bot">𝓝𝓲𝓽𝓱𝔂𝓪 𝓼𝓱𝓻𝓮𝓮 🥀🦋</a></b>\n' \
+                  f'◈ <b>Fᴏᴜɴᴅᴇʀ ᴏꜰ</b>: <b><a href="https://t.me/+_Y54DFBnaVUwZjc1">Dᴏᴏᴛʜᴀ</a></b>\n' \
+                  f'◈ <b>Oɴɢᴏɪɴɢ Cʜᴀɴɴᴇʟ</b>: <b><a href="https://t.me/anime_Movies_and_Series_Telugu">Oɴɢᴏɪɴɢ Aɴɪᴍᴇ</a></b>\n' \
+                  f'◈ <b>Mᴀɪɴ Cʜᴀɴɴᴇʟ</b>: <b><a href="https://t.me/Telugu_Movies_999">Mᴀɪɴ Cʜᴀɴɴᴇʟ</a></b>\n' \
+                  f'◈ <b>Tᴇʟᴜɢᴜ Mᴏᴠɪᴇs</b>: <b><a href="https://t.me/vs_Files_Mx_player">Oᴜʀ Bᴏᴛs </a></b>\n' \
+                  f'◈ <b>Dᴇᴠᴇʟᴏᴘᴇʀ</b>: <b><a href="https://t.me/arya_Bro_Bot">𝐀ʀʏᴀ</a></b>\n' \
+                  f'<b>┗━━━━━━━❪❂❫━━━━━━━━</b>', 
             disable_web_page_preview=True,  # ✅ Added missing comma
             reply_markup=InlineKeyboardMarkup(
                 [
