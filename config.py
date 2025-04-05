@@ -52,18 +52,17 @@ BOT_STATS_TEXT = "<b>BOT UPTIME :</b>\n{uptime}"
 USER_REPLY_TEXT = "❌sᴏʀʀʏ మావా నువ్వు నా ᴏᴡɴᴇʀ కాదు..!😜\n\n❌Don't Send Me Messages Directly I'm Only File Share Bot !"
 
 START_MSG = """<blockquote>
-<b>Hey, <a href='tg://user?id={id}'>{first}</a>✌🏻. I hope you're feeling the power of 𝐒ʜᴀᴅᴏᴡ Mᴏɴᴀʀᴄʜ 😈.</b>
+<b>Hᴇʏ Bʀᴏ, I'ᴍ ᴀ Pᴠᴛ Fɪʟᴇ Sᴛᴏʀᴇ Bᴏᴛ</b>
 
-<b>I'm The Ultimate File Sharing Bot, built to rule the Shadow Realm 🖤</b>
+❓ <b>Hᴏᴡ Tᴏ Usᴇ Mᴇ 🤔❗</b>
 
-🔱 <b>Store & Share Files with a Single Click.</b>  
-🛡️ <b>Infinite File Management System.</b>  
-📂 <b>Post Files in Anime Monarch 👑 Template.</b>
+- Cʟɪᴄᴋ <b>Start</b> Bᴜᴛᴛᴏɴ  
+- Jᴏɪɴ Aʟʟ Rᴇǫᴜɪʀᴇᴅ Cʜᴀɴɴᴇʟs  
+- Tʀʏ Aɢᴀɪɴ Aғᴛᴇʀ Jᴏɪɴɪɴɢ
 
----
+<b>❤‍🩹 - <a href='https://t.me/Arya_Bro_Bot'>@Arya_Bro_Bot</a></b>
 
-<b>Now, The File Realm Is Under My Control 😈.</b>  
-<b>Are You Ready to Dominate, {first}-Sama? 👑</b>
+<i>(Dᴍ ᴍᴇ ɪғ ʏᴏᴜ'ʀᴇ ғᴀᴄɪɴɢ ᴀɴʏ ɪssᴜᴇs. Rᴇᴘʟɪᴇs ᴍᴀʏ ᴛᴀᴋᴇ sᴏᴍᴇ ᴛɪᴍᴇ.)</i>
 </blockquote>"""
 
 FORCE_MSG = "Join my channels first 😈"
